@@ -1,0 +1,289 @@
+! Xcursor
+Xcursor.theme: Premuim
+
+! rxvt-unicode ---------------------------------------------------------------
+
+!urxvt*font: xft:termsyn:pixelsize=10
+urxvt*font: xft:ProggyTinyTTSZ:pixelsize=9
+
+urxvt.modifier:meta
+
+!set to 32-bit for real transparency (compositing required)
+urxvt*depth:             24
+!save n lines of scrollback buffer
+urxvt*saveLines:          32767
+!jump to bottom (prompt) on keypress
+urxvt*scrollTtyKeypress:  true
+!jump to bottom (prompt) when tty gets new lines
+urxvt*scrollWithBuffer:   false
+!jump to bottom (prompt) on tty output
+urxvt*scrollTtyOutput:    false
+!toggle scrollbar
+urxvt*scrollBar:          false
+!scrollbar styles: rxvt, plain, next or xterm
+urxvt*scrollstyle:        plain
+!enable pseudo-transparency (requires depth: 24 (see above))
+urxvt*inheritPixmap:      true
+!delimiters for double-click mouse selection
+urxvt*cutchars:           "\"()*,<>[]{}|'"
+!screen dump settings
+urxvt*print-pipe:         cat > $(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
+!secondary screen scroll (default enabled)
+urxvt*secondaryScroll:    true
+!de-iconify (map) on receipt of a bell character
+urxvt*mapAlert:           true
+!inhibit writing record into the system log file utmp
+urxvt*utmpInhibit:        true
+
+
+!transparent=0000 opaque=ffff
+!urxvt*background: rgba:1111/1111/1111/dddd
+
+urxvt*eightBitInput:   false
+urxvt*metaSendsEscape: true
+!urxvt*modifier: mod4
+
+URxvt.cursorUnderline: true
+URxvt.cursorBlink: true
+
+! urxvt coloring
+
+URxvt*.shading: 0
+URxvt*.transparent: true
+
+
+URxvt*tintColor: gray30
+! URxvt.internalBorder: 0
+! URxvt.loginShell: true
+URxvt.perl-ext-common: default,matcher,searchable-scrollback
+URxvt.pointerBlank: true
+URxvt.matcher.button:   1
+URxvt.secondaryScroll: true
+URxvt.scrollBar: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollWithBuffer: true
+URxvt*urlLauncher: /usr/bin/firefox
+URxvt.url-launcher:      /usr/bin/firefox
+!URxvt*background: #000010
+!URxvt*foreground: Wheat
+URxvt*cursorColor: Wheat
+URxvt*colorUL: #c5f779
+URxvt*underlineColor: #c5f779
+
+!gruvbox:
+! hard contrast: *background: #1d2021
+*background: #32302f
+!*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0: #282828
+*color8: #928374
+! DarkRed + Red
+*color1: #cc241d
+*color9: #fb4934
+! DarkGreen + Green
+*color2: #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3: #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4: #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5: #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6: #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7: #a89984
+*color15: #ebdbb2
+
+!urxvt256 shit
+URxvt.color24: #076678
+URxvt.color66: #427b58
+URxvt.color88: #9d0006
+URxvt.color96: #8f3f71
+URxvt.color100: #79740e
+URxvt.color108: #8ec07c
+URxvt.color109: #83a598
+URxvt.color130: #af3a03
+URxvt.color136: #b57614
+URxvt.color142: #b8bb26
+URxvt.color167: #fb4934
+URxvt.color175: #d3869b
+URxvt.color208: #fe8019
+URxvt.color214: #fabd2f
+URxvt.color223: #ebdbb2
+URxvt.color228: #f4e8ba
+URxvt.color229: #fdf4c1
+URxvt.color230: #ffffc8
+URxvt.color234: #1d2021
+URxvt.color235: #282828
+URxvt.color236: #32302f
+URxvt.color237: #3c3836
+URxvt.color239: #504945
+URxvt.color241: #665c54
+URxvt.color243: #7c6f64
+URxvt.color244: #928374
+URxvt.color245: #928374
+URxvt.color246: #a89984
+URxvt.color248: #bdae93
+URxvt.color250: #d5c4a1
+
+
+
+
+
+
+! Zenburn
+!URxvt*color0: #000000
+!URxvt*color1: #9e1828
+!URxvt*color2: #aece92
+!URxvt*color3: #968a38
+!URxvt*color4: #414171
+!URxvt*color5: #963c59
+!URxvt*color6: #418179
+!URxvt*color7: #bebebe
+!URxvt*color8: #666666
+!URxvt*color9: #cf6171
+!URxvt*color10: #c5f779
+!URxvt*color11: #fff796
+!URxvt*color12: #4186be
+!URxvt*color13: #cf9ebe
+!URxvt*color14: #71bebe
+!URxvt*color15: #ffffff
+
+
+!URxvt.background: #232323
+!URxvt.foreground: #A0A0A0
+
+!URxvt.colorBD:    #CFCFCF
+!URxvt.colorUL:    #A0A0A0
+!URxvt.colorIT:    #686868
+
+!BLK
+!URxvt.color0:     #303030
+!URxvt.color8:     #686868
+
+!RED
+!URxvt.color9:     #FFA7DA
+!URxvt.color1:     #D370A3
+
+!GRN
+!URxvt.color10:    #A3D572
+!URxvt.color2:     #6D9E3F
+
+!BLU
+!URxvt.color12:    #98CBFE
+!URxvt.color4:     #6095C5
+
+!YEL
+!URxvt.color11:    #EFBD8B
+!URxvt.color3:     #B58858
+
+!CYN
+!URxvt.color14:    #75DAA9
+!URxvt.color6:     #3BA275
+
+!MAG
+!URxvt.color13:    #E5B0FF
+!URxvt.color5:     #AC7BDE
+
+!WHT
+!URxvt.color7:     #CFCFCF
+!URxvt.color15:    #FFFFFF            
+
+
+! tangoesque scheme
+!*background: #111111
+!*foreground: #babdb6
+! Black (not tango) + DarkGrey
+!*color0:  #000000
+!*color8:  #555753
+! DarkRed + Red
+!*color1:  #ff6565
+!*color9:  #ff8d8d
+! DarkGreen + Green
+!*color2:  #93d44f
+!*color10: #c8e7a8
+! DarkYellow + Yellow
+!*color3:  #eab93d
+!*color11: #ffc123
+! DarkBlue + Blue
+!*color4:  #204a87
+!*color12: #3465a4
+! DarkMangenta + Mangenta
+!*color5:  #ce5c00
+!*color13: #f57900
+!DarkCyan + Cyan (both not tango)
+!*color6:  #89b6e2
+!*color14: #46a4ff
+! LightGrey + White
+!*color7:  #cccccc
+!*color15: #ffffff
+
+!BLK
+!URxvt.color0:     #101010
+!URxvt.color8:     #686868
+
+!RED
+!URxvt.color9:     #d92b03
+!URxvt.color1:     #731601
+
+!GRN
+!URxvt.color10:    #24c541
+!URxvt.color2:     #115e1f
+
+!BLU
+!URxvt.color12:    #4e9fb1
+!URxvt.color4:     #21424a
+
+!YEL
+!URxvt.color11:    #ffdb0c
+!URxvt.color3:     #998308
+
+!CYN
+!URxvt.color14:    #167be0
+!URxvt.color6:     #0c437a
+
+!MAG
+!URxvt.color13:    #ae30c1
+!URxvt.color5:     #53175c
+
+!WHT
+!URxvt.color7:     #CFCFCF
+!URxvt.color15:    #FFFFFF            
+
+! old wallpaper-matching
+!URxvt*background: #161616
+!URxvt.cursorColor: #FDA53C
+
+!black
+!*color0: #222222
+!*color8: #666666
+!red
+!*color1: #E84F4F
+!*color9: #D23D3D
+!green
+!*color2: #B7CE42
+!*color10: #BDE077
+!yellow
+!*color3: #FEA63C
+!*color11: #FFE863
+!blue
+!*color4: #66AABB
+!*color12: #AACCBB
+!magenta
+!*color5: #B7416E
+!*color13: #E16A98
+!cyan
+!*color6: #6D878D
+!*color14: #42717B
+!white
+!*color7: #DDDDDD
+!*color15: #CCCCCC
+
+

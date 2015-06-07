@@ -1,11 +1,25 @@
+" vundle things:
+set nocompatible
 filetype off
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+ 
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-powerline'
+"Bundle 'rentalcustard/exuberant-ctags'
+"Bundle 'thisivan/vim-taglist'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/buftabs'
+Bundle 'vim-scripts/harlequin'
+Bundle 'morhetz/gruvbox'
+"Bundle 'bling/vim-airline'
+"Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
-syntax enable
+call vundle#end()
+filetype plugin indent on
 
 set number
 set background=dark
-set nocompatible
 set autoindent
 set smartindent
 set smarttab
@@ -14,25 +28,13 @@ set shiftwidth=2
 set showmatch
 set ruler
 set virtualedit=all
-set backupdir=~/.vim/backup,/tmp
+set backupdir=~/.vim/backup
 set nowrap
 set expandtab
 set showcmd
-
-" visual completion
 set wildmenu
 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'thisivan/vim-taglist'
-Bundle 'vim-scripts/harlequin'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'fholgado/minibufexpl.vim'
-Bundle 'vim-scripts/buftabs'
-" Bundle 'bling/vim-airline'
-" Bundle 'LaTeX-Box-Team/LaTeX-Box'
-
-colorscheme harlequin
+syntax enable
 
 if has("gui_running")
     " show current col/row
@@ -45,12 +47,17 @@ if has("gui_running")
     set guioptions-=T
     set guioptions-=l
     set guioptions-=L
-    set guifont=Terminus\ 9
+    " set guifont=Terminus\ 9
+    set guifont=ProggyTinyTTSZ\ 12
+    colorscheme gruvbox
     set mouse=a
+    set guiheadroom=0
 endif
                  
 if !has("gui_running")
     set mouse-=a 
+    colorscheme harlequin
+    set mouse=a
 endif
 
 autocmd FileType make setlocal noexpandtab
@@ -63,8 +70,3 @@ map <C-S-tab> :bprevious <CR>
 map <C-e> :NERDTreeToggle <CR>
 
 cmap w!! %!sudo tee > /dev/null %
-
-" LaTeX-Box config
-"let g:Tex_DefaultTargetFormat='pdf'
-"let g:LatexBox_viewer = 'zathura'
-"let g:LatexBox_latexmk_options = '-pv'

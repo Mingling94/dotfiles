@@ -3,6 +3,6 @@ A collection of various personalized config files, ready for management with GNU
 
 For a quick example, my .vimrc is installed like this:
 
-`stow vim`
+`stow -t $HOME vim`
 
 stow will happily link all the files in dotfiles/vim/ to $HOME - in this case, dotfiles/vim/.vimrc to $HOME/.vimrc

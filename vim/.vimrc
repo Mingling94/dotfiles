@@ -1,72 +1,121 @@
-" vundle things:
+" Vundle things:
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
- 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'rentalcustard/exuberant-ctags'
-"Bundle 'thisivan/vim-taglist'
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/buftabs'
-Bundle 'vim-scripts/harlequin'
-Bundle 'morhetz/gruvbox'
-"Bundle 'bling/vim-airline'
-"Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'gmarik/Vundle.vim'
 
-call vundle#end()
-filetype plugin indent on
+" Javascript Syntax helpers
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
 
-set number
-set background=dark
-set autoindent
-set smartindent
-set smarttab
-set tabstop=2
-set shiftwidth=2
-set showmatch
+" Syntax completion
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/syntastic'
+let g:syntastic_check_on_open=1
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+Plugin 'marijnh/tern_for_vim'
+
+" Go Syntax
+Plugin 'fatih/vim-go'
+
+" JSdoc 3 generator assigned to ctrl+j when insert mode on function header
+Plugin 'SirVer/ultisnips'
+Plugin 'jordwalke/JSDocSnippets'
+let g:JSDocSnippetsMapping='<c-j>'
+
+" i3 vim syntax
+Plugin 'PotatoesMaster/i3-vim-syntax'
+
+" Some of Galen's stuff
+Plugin 'morhetz/gruvbox'
+
+call vundle#end()			 " required
+filetype plugin indent on	 " required
+
+" Actual things:
+if v:progname =~? "evim"
+	finish
+endif
+
+if has("vms")
+	set nobackup		" do not keep a backup file, use versions instead
+else
+	set backup		" keep a backup file
+endif
+
+if has('mouse')
+	set mouse=a
+endif
+
+if &t_Co > 2 || has("gui_running")
+	" show current col/row
+	set cursorcolumn
+	set cursorline
+	" remove for TeX - slows vim way down
+	autocmd Filetype tex set nocursorcolumn
+	autocmd Filetype tex set nocursorline
+	set guioptions-=r
+	set guioptions-=T
+	set guioptions-=l
+	set guioptions-=L
+	" set guifont=Terminus\ 9
+	set guifont=ProggyTinyTTSZ\ 12
+	colorscheme gruvbox
+	set mouse=a
+	set guiheadroom=0
+	syntax on
+	set hlsearch
+endif
+
+if has("autocmd")
+	filetype plugin indent on
+	augroup vimrcEx
+	au!
+	autocmd FileType text setlocal textwidth=78
+	autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\	exe "normal! g`\"" |
+	\ endif
+	augroup END
+else
+	set autoindent
+endif
+
+if !exists(":DiffOrig")
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		\ | wincmd p | diffthis
+endif
+
+set nocompatible
+set backspace=indent,eol,start
+set history=50
 set ruler
-set virtualedit=all
-set backupdir=~/.vim/backup
-set nowrap
-set expandtab
 set showcmd
-set wildmenu
+set incsearch
+set backupdir=./.backup,/tmp,.
+set directory=.,./.backup,/tmp
+set tabstop=4
+set nowrap
+set number
+set shiftwidth=4
+set noexpandtab
+set clipboard=unnamed
 
-syntax enable
+" Style for javascript
+set t_Co=256
+syntax on
+set background=dark
+colorscheme distinguished
 
-if has("gui_running")
-    " show current col/row
-    set cursorcolumn
-    set cursorline
-    " remove for TeX - slows vim way down
-    autocmd Filetype tex set nocursorcolumn
-    autocmd Filetype tex set nocursorline
-    set guioptions-=r
-    set guioptions-=T
-    set guioptions-=l
-    set guioptions-=L
-    " set guifont=Terminus\ 9
-    set guifont=ProggyTinyTTSZ\ 12
-    colorscheme gruvbox
-    set mouse=a
-    set guiheadroom=0
-endif
-                 
-if !has("gui_running")
-    set mouse-=a 
-    colorscheme harlequin
-    set mouse=a
-endif
-
-autocmd FileType make setlocal noexpandtab
-
-
-" key bindings 
-
-map <C-tab> :bnext <CR>
-map <C-S-tab> :bprevious <CR>
-map <C-e> :NERDTreeToggle <CR>
+" Mappings
+imap <C-c> <CR><Esc>O
+map <C-l> cw<C-r>0<ESC>
+map Q gq
+inoremap <C-U> <C-G>u<C-U>
 
 cmap w!! %!sudo tee > /dev/null %

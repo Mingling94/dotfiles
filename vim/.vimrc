@@ -105,6 +105,7 @@ set number
 set shiftwidth=4
 set noexpandtab
 set clipboard=unnamed
+set ttyscroll=3
 
 " Style for javascript
 set t_Co=256

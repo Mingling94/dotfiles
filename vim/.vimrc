@@ -49,7 +49,7 @@ else
 endif
 
 if has('mouse')
-	set mouse=a
+	set mouse=v
 endif
 
 if &t_Co > 2 || has("gui_running")
@@ -66,7 +66,7 @@ if &t_Co > 2 || has("gui_running")
 	" set guifont=Terminus\ 9
 	set guifont=ProggyTinyTTSZ\ 12
 	colorscheme gruvbox
-	set mouse=a
+	set mouse=v
 	set guiheadroom=0
 	syntax on
 	set hlsearch

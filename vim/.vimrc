@@ -65,7 +65,9 @@ if &t_Co > 2 || has("gui_running")
 	set guioptions-=L
 	" set guifont=Terminus\ 9
 	set guifont=ProggyTinyTTSZ\ 12
-	colorscheme gruvbox
+	" colorscheme gruvbox
+	" colorscheme distinguished
+	" Normal ctermbg=NONE
 	set mouse=v
 	set guiheadroom=0
 	syntax on
@@ -111,7 +113,6 @@ set ttyscroll=3
 set t_Co=256
 syntax on
 set background=dark
-colorscheme distinguished
 
 " Mappings
 imap <C-c> <CR><Esc>O

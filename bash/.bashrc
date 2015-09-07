@@ -90,7 +90,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-nset SSH_ASKPASS
+unset SSH_ASKPASS
 
 # Customizations to Path
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -110,7 +110,7 @@ alias gcm='git commit'
 alias gco='git checkout'
 alias gbr='git branch -v'
 alias grt='git remote -v'
-alias ls='ls --color=auto'
+alias ls='ls --all --color=auto'
 alias open='xdg-open'
 alias grep='grep --color=auto'
 

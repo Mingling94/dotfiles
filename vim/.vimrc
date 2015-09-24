@@ -43,9 +43,11 @@ if v:progname =~? "evim"
 endif
 
 if has("vms")
-	set nobackup		" do not keep a backup file, use versions instead
+" do not keep a backup file, use versions instead
+	set nobackup
 else
-	set backup		" keep a backup file
+" keep a backup file
+	set backup
 endif
 
 if has('mouse')
@@ -93,7 +95,14 @@ if !exists(":DiffOrig")
 		\ | wincmd p | diffthis
 endif
 
-set nocompatible
+" Windows compatibility settings
+set ff=unix
+let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
+call vundle#rc(expand(vimDir . '/bundle'))
+
+" Actual settings
 set backspace=indent,eol,start
 set history=50
 set ruler

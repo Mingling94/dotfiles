@@ -31,6 +31,9 @@ let g:JSDocSnippetsMapping='<c-j>'
 " i3 vim syntax
 Plugin 'PotatoesMaster/i3-vim-syntax'
 
+" ttmux vim
+Plugin 'christoomey/vim-tmux-navigator'
+
 " Some of Galen's stuff
 Plugin 'morhetz/gruvbox'
 
@@ -96,13 +99,26 @@ if !exists(":DiffOrig")
 endif
 
 " Windows compatibility settings
-set ff=unix
-let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
-let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
-let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
-call vundle#rc(expand(vimDir . '/bundle'))
+" To be used when developing on windows and having trouble with compatibility
+"set ff=unix
+"let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+"let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+"let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
+"call vundle#rc(expand(vimDir . '/bundle'))
 
-" Actual settings
+" Helper function for aliasing
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+call SetupCommandAlias('W', 'w')
+call SetupCommandAlias('Q', 'q')
+call SetupCommandAlias('WQ', 'wq')
+call SetupCommandAlias('Wq', 'wq')
+
+" Settings
+set nocompatible
 set backspace=indent,eol,start
 set history=50
 set ruler
@@ -110,13 +126,18 @@ set showcmd
 set incsearch
 set backupdir=./.backup,/tmp,.
 set directory=.,./.backup,/tmp
-set tabstop=4
 set nowrap
 set number
+set clipboard=unnamed
+set autoindent
+set tabstop=4
 set shiftwidth=4
 set noexpandtab
-set clipboard=unnamed
-set ttyscroll=3
+
+" Settings deprecated in nvim
+if !has('nvim')
+	set ttyscroll=3
+endif
 
 " Style for javascript
 set t_Co=256
@@ -128,5 +149,11 @@ imap <C-c> <CR><Esc>O
 map <C-l> cw<C-r>0<ESC>
 map Q gq
 inoremap <C-U> <C-G>u<C-U>
+" Shift between vim panes with CTRL+h|j|k|l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
-cmap w!! %!sudo tee > /dev/null %
+" Sudo from within vim
+cmap w!! w !sudo tee > /dev/null %

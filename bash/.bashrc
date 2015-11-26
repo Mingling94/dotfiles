@@ -99,29 +99,56 @@ export GOPATH=$HOME/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export LS_COLORS='di=38;5;108:fi=00:*svn-commit.tmp=31:ln=38;5;116:ex=38;5;186'
 export EDITOR='vim'
+alias python='python3'
+alias pip='pip3.4'
 
 # Customizations for ease of commands
+# Git & Dev
 source ~/git-completion.bash
-alias cdui='cd /home/ming/Github/New-Sia-UI'
-alias cdsiaui='cd /home/ming/Github/Sia-UI'
 alias cdsia='cd /home/ming/gopath/src/github.com/NebulousLabs/Sia'
 alias gst='git status -v -b'
 alias gcm='git commit'
 alias gco='git checkout'
 alias gbr='git branch -v'
 alias grt='git remote -v'
-alias ls='ls --all --color=auto'
-alias open='xdg-open'
 alias grep='grep --color=auto'
+# Cuz remembering vim vs. bash is hard sometimes
+alias :q='exit'
+alias :Q='exit'
+alias q='exit'
+alias Q='exit'
+# Misc
+alias rewifi='sudo service network-manager restart && echo "Network manager restarting..."'
+alias install='sudo apt-get install'
+alias remove='sudo apt-get remove'
 
-# ammend last commit with all existing changes
-gitwhoops ()
-{
+
+# Ammend last commit with all existing changes
+gitwhoops () {
 	git add -u :/
 	[ "$?" == "0" ] && git commit --amend --no-edit
 	[ "$?" == "0" ] && git push --force
 	[ "$?" == "0" ] && echo 'whoops, last commit ammended successfully'
 }
+up () {
+	local d=""
+	limit=$1
+	for ((i=1 ; i <= limit ; i++))
+		do
+			d=$d/..
+		done
+	d=$(echo $d | sed 's/^\///')
+	if [ -z "$d" ]; then
+		d=..
+	fi
+	cd $d
+}
+cdg () {
+	cd "/home/ming/Github/$1"
+}
 
-# alias hub to git
+# Alias hub to git
 eval "$(hub alias -s)"
+
+# For fun
+fortune | cowsay | lolcat

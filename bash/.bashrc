@@ -108,7 +108,7 @@ alias pip='pip3.4'
 # Git & Dev
 source ~/git-completion.bash
 alias cdsia='cd /home/ming/gopath/src/github.com/NebulousLabs/Sia'
-alias gst='git status -v -b'
+alias gst='git status'
 alias gcm='git commit'
 alias gco='git checkout'
 alias gbr='git branch -v'

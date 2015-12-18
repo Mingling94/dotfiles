@@ -125,7 +125,7 @@ gitwhoops () {
 	git add -u :/
 	[ "$?" == "0" ] && git commit --amend --no-edit
 	[ "$?" == "0" ] && git push --force
-	[ "$?" == "0" ] && echo 'whoops, last commit ammended successfully'
+	[ "$?" == "0" ] && echo 'Whoops, last commit ammended successfully'
 }
 up () {
 	local d=""
@@ -140,6 +140,59 @@ up () {
 	fi
 	cd $d
 }
+# Swap 2 filenames around, if they exist (from Uzi's bashrc).
+swap()
+{
+    local TMPFILE=tmp.$$
+
+    [ $# -ne 2 ] && echo "swap: 2 arguments needed" && return 1
+    [ ! -e $1 ] && echo "swap: $1 does not exist" && return 1
+    [ ! -e $2 ] && echo "swap: $2 does not exist" && return 1
+
+    mv "$1" $TMPFILE
+    mv "$2" "$1"
+    mv $TMPFILE "$2"
+}
+# Handy Extract Program
+extract()
+{
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1     ;;
+            *.tar.gz)    tar xvzf $1     ;;
+            *.bz2)       bunzip2 $1      ;;
+            *.rar)       unrar x $1      ;;
+            *.gz)        gunzip $1       ;;
+            *.tar)       tar xvf $1      ;;
+            *.tbz2)      tar xvjf $1     ;;
+            *.tgz)       tar xvzf $1     ;;
+            *.zip)       unzip $1        ;;
+            *.Z)         uncompress $1   ;;
+            *.7z)        7z x $1         ;;
+            *)           echo "'$1' cannot be extracted via >extract<" ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+# Creates an archive (*.tar.gz) from given directory.
+maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+
+# Create a ZIP archive of a file or folder.
+makezip() { zip -r "${1%%/}.zip" "$1" ; }
+
+# Make your directories and files access rights sane.
+sanitize() { chmod -R u=rwX,g=rX,o= "$@" ;}
+# Repeat n times command.
+repeat()
+{
+    local i max
+    max=$1; shift;
+    for ((i=1; i <= max ; i++)); do  # --> C-like syntax
+        eval "$@";
+    done
+}
+# Go to github folder
 cdg () {
 	cd "/home/ming/Github/$1"
 }

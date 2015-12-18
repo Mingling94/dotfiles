@@ -116,6 +116,8 @@ call SetupCommandAlias('W', 'w')
 call SetupCommandAlias('Q', 'q')
 call SetupCommandAlias('WQ', 'wq')
 call SetupCommandAlias('Wq', 'wq')
+" To work on files that operate under standard JS style
+call SetupCommandAlias('standard', 'set tabstop=2 expandtab shiftwidth=2')
 
 " Settings
 set nocompatible

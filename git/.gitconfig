@@ -1,0 +1,28 @@
+[user]
+	email = mcluo1994@gmail.com
+	name = Ming Luo
+[push]
+	default = simple
+[alias]
+	# General shortcuts
+	rt = remote -v
+	co = checkout
+	st = status
+	ci = commit
+	br = branch -v
+	last = log -1 HEAD
+
+	# Displays git history beautifully
+	tree = log --oneline --color --graph --decorate --abbrev-commit
+
+	# Unstage or undo mistakes
+	unstage = reset HEAD
+	unstageall = reset HEAD --
+	uncommit = reset --soft HEAD^
+	clear = checkout -- *
+	undo = reset --hard HEAD^ --
+
+	# Updating to upstream shortcuts
+	continue = rebase --continue
+	pullup = !git pull upstream master && git push
+	reup = !git rebase master && git push --force

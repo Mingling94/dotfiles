@@ -6,7 +6,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Javascript Syntax helpers
-Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 
 " Syntax completion
@@ -34,8 +34,11 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 " ttmux vim
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Some of Galen's stuff
+" Old timey syntax coloring
 Plugin 'morhetz/gruvbox'
+
+" Adhere to .editorconfig in projects that have it
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()			 " required
 filetype plugin indent on	 " required
@@ -70,7 +73,7 @@ if &t_Co > 2 || has("gui_running")
 	set guioptions-=L
 	" set guifont=Terminus\ 9
 	set guifont=ProggyTinyTTSZ\ 12
-	" colorscheme gruvbox
+	colorscheme gruvbox
 	" colorscheme distinguished
 	" Normal ctermbg=NONE
 	set mouse=v
@@ -116,6 +119,8 @@ call SetupCommandAlias('W', 'w')
 call SetupCommandAlias('Q', 'q')
 call SetupCommandAlias('WQ', 'wq')
 call SetupCommandAlias('Wq', 'wq')
+call SetupCommandAlias('Vsplit', 'vsplit')
+call SetupCommandAlias('Split', 'split')
 " To work on files that operate under standard JS style
 call SetupCommandAlias('standard', 'set tabstop=2 expandtab shiftwidth=2')
 

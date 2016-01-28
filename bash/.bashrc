@@ -63,24 +63,6 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -104,29 +86,47 @@ export EDITOR='vim'
 alias python='python3'
 alias pip='pip3.4'
 
-# Customizations for ease of commands
+# Enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# Some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 # Git & Dev
 source ~/git-completion.bash
-alias cdsia='cd /home/ming/gopath/src/github.com/NebulousLabs/Sia'
 alias gst='git status'
 alias gcm='git commit'
 alias gco='git checkout'
 alias gbr='git branch -v'
 alias grt='git remote -v'
 alias grep='grep --color=auto'
+
 # Cuz remembering vim vs. bash is hard sometimes
 alias :q='exit'
 alias :Q='exit'
 alias q='exit'
 alias Q='exit'
 
-# Ammend last commit with all existing changes
-gitwhoops () {
-	git add -u :/
-	[ "$?" == "0" ] && git commit --amend --no-edit
-	[ "$?" == "0" ] && git push --force
-	[ "$?" == "0" ] && echo 'Whoops, last commit ammended successfully'
+# Go to Sia folder
+alias cdsia='cd /home/ming/gopath/src/github.com/NebulousLabs/Sia'
+
+# Go to github folder
+cdg () {
+	cd "/home/ming/Github/$1"
 }
+# Go up a certain amount of directories
 up () {
 	local d=""
 	limit=$1
@@ -177,10 +177,8 @@ extract()
 }
 # Creates an archive (*.tar.gz) from given directory.
 maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
-
 # Create a ZIP archive of a file or folder.
 makezip() { zip -r "${1%%/}.zip" "$1" ; }
-
 # Make your directories and files access rights sane.
 sanitize() { chmod -R u=rwX,g=rX,o= "$@" ;}
 # Repeat n times command.
@@ -192,14 +190,10 @@ repeat()
         eval "$@";
     done
 }
-# Go to github folder
-cdg () {
-	cd "/home/ming/Github/$1"
-}
 
 # Alias hub to git
 eval "$(hub alias -s)"
 
-# For fun
+# For fun fact piped to cowsay piped to rainbow
 # Only run ~20% of the time
 [ $[ $RANDOM % 5 ] == 0 ] && fortune -as | cowsay | lolcat

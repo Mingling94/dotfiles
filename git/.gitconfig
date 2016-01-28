@@ -12,6 +12,10 @@
 	br = branch -v
 	last = log -1 HEAD
 
+	# Ammend last commit with current changes
+	amend = commit -a --amend --no-edit
+	whoops = !git amend && git push --force
+
 	# Displays git history beautifully
 	tree = log --oneline --color --graph --decorate --abbrev-commit
 

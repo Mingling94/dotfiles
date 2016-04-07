@@ -1,9 +1,12 @@
 @echo off
 
-:: Make an alias for the current session only
-:: Also check existing aliases if ran with no argument
+:: Default Github Folder, change if different
+SET GITHUBFOLDER=%USERPROFILE%\Documents\Github
+
+:: Make an alias for the current session only or check existing aliases if ran with no argument
 DOSKEY alias=if ".$*." == ".." ( DOSKEY /MACROS ) else ( DOSKEY $* )
-DOSKEY vimalias=vim C:\Users\miluo\Documents\Github\dotfiles\Windows\aliases.bat
+:: Edit the aliases.bat file
+DOSKEY vimalias=vim %GITHUBFOLDER%\dotfiles\Windows\aliases.bat
 
 :: Bash/Linux like aliases
 DOSKEY ls=DIR $* 
@@ -25,6 +28,6 @@ DOSKEY gbr=git branch -v $*
 DOSKEY grt=git remote -v $*
 
 :: Directory shortcuts
-DOSKEY documents=cd C:\Users\miluo\Documents\$1
-DOSKEY downloads=cd C:\Users\miluo\Downloads\$1
-DOSKEY github=cd C:\Users\miluo\Documents\Github\$1
+DOSKEY documents=cd %USERPROFILE%\Documents\$1
+DOSKEY downloads=cd %USERPROFILE%\Downloads\$1
+DOSKEY github=cd %GITHUBFOLDER%\$1

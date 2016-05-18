@@ -6,7 +6,7 @@ SET GITHUBFOLDER=%USERPROFILE%\Documents\Github
 :: Make an alias for the current session only or check existing aliases if ran with no argument
 DOSKEY alias=if ".$*." == ".." ( DOSKEY /MACROS ) else ( DOSKEY $* )
 :: Edit the aliases.bat file
-DOSKEY vimalias=vim %GITHUBFOLDER%\dotfiles\Windows\aliases.bat
+DOSKEY editalias=vim %GITHUBFOLDER%\dotfiles\Windows\aliases.bat
 
 :: Bash/Linux like aliases
 DOSKEY ls=DIR $* 

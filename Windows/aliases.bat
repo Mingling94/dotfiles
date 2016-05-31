@@ -1,12 +1,13 @@
 @echo off
 
-:: Default Github Folder, change if different
-SET GITHUBFOLDER=%USERPROFILE%\Documents\Github
+:: Default Github path, change if different
+SET GITHUB=%USERPROFILE%\Documents\Github
+SET GDRIVE="%USERPROFILE%\Google Drive"
 
 :: Make an alias for the current session only or check existing aliases if ran with no argument
 DOSKEY alias=if ".$*." == ".." ( DOSKEY /MACROS ) else ( DOSKEY $* )
 :: Edit the aliases.bat file
-DOSKEY editalias=vim %GITHUBFOLDER%\dotfiles\Windows\aliases.bat
+DOSKEY editalias=vim %GITHUB%\dotfiles\Windows\aliases.bat
 
 :: Bash/Linux like aliases
 DOSKEY ls=DIR $* 
@@ -30,4 +31,5 @@ DOSKEY grt=git remote -v $*
 :: Directory shortcuts
 DOSKEY documents=cd %USERPROFILE%\Documents\$1
 DOSKEY downloads=cd %USERPROFILE%\Downloads\$1
-DOSKEY github=cd %GITHUBFOLDER%\$1
+DOSKEY github=cd %GITHUB%\$1
+DOSKEY gdrive=cd %GDRIVE%\$1

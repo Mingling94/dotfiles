@@ -14,23 +14,26 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
-Plugin 'marijnh/tern_for_vim'
 
+"Plugin 'marijnh/tern_for_vim'
 "Plugin 'Valloric/YouCompleteMe'
 "let g:ycm_add_preview_to_completeopt=0
 "let g:ycm_confirm_extra_conf=0
 "set completeopt-=preview
-
-" Go Syntax
-Plugin 'fatih/vim-go'
 
 " JSdoc 3 generator assigned to ctrl+j when insert mode on function header
 "Plugin 'SirVer/ultisnips'
 Plugin 'jordwalke/JSDocSnippets'
 let g:JSDocSnippetsMapping='<c-j>'
 
-" i3 vim syntax
+" Go Syntax
+Plugin 'fatih/vim-go'
+
+" i3 vim Syntax
 Plugin 'PotatoesMaster/i3-vim-syntax'
+
+" Powershell Syntax
+Plugin 'PProvost/vim-ps1'
 
 " ttmux vim
 Plugin 'christoomey/vim-tmux-navigator'
@@ -133,8 +136,6 @@ set history=50
 set ruler
 set showcmd
 set incsearch
-set backupdir=./.backup,/tmp,.
-set directory=.,./.backup,/tmp
 set nowrap
 set number
 set clipboard=unnamed

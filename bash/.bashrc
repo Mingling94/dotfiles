@@ -63,7 +63,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable programmable completion features (you don't need to enable
+# Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -104,14 +104,15 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Git & Dev
-source ~/git-completion.bash
+# Git
+# Source ~/git-completion.bash # This needs to be manually downloaded
+source /etc/bash_completion.d/git-prompt
 alias gst='git status'
 alias gcm='git commit'
 alias gco='git checkout'
 alias gbr='git branch -v'
 alias grt='git remote -v'
-alias grep='grep --color=auto'
+alias gd='git diff'
 
 # Cuz remembering vim vs. bash is hard sometimes
 alias :q='exit'
@@ -190,9 +191,6 @@ repeat()
         eval "$@";
     done
 }
-
-# Alias hub to git
-eval "$(hub alias -s)"
 
 # For fun fact piped to cowsay piped to rainbow
 # Only run ~20% of the time

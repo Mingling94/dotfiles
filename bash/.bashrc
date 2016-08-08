@@ -120,8 +120,8 @@ alias :Q='exit'
 alias q='exit'
 alias Q='exit'
 
-# Go to Sia folder
-alias cdsia='cd /home/ming/gopath/src/github.com/NebulousLabs/Sia'
+# Poloniex bot script
+alias startpb='~/Github/dotfiles/bin/start-poloniex.sh'
 
 # Go to github folder
 cdg () {

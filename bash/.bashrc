@@ -120,11 +120,12 @@ alias :Q='exit'
 alias q='exit'
 alias Q='exit'
 
-# Poloniex bot script
-alias startpb='~/Github/dotfiles/bin/start-poloniex.sh'
+# Poloniex lending bot start/stop scripts
+alias startplb='~/Github/dotfiles/bin/start-poloniexlendingbot.sh'
+alias stopplb='~/Github/dotfiles/bin/stop-poloniexlendingbot.sh'
 
 # Go to github folder
-cdg () {
+github () {
 	cd "/home/ming/Github/$1"
 }
 # Go up a certain amount of directories

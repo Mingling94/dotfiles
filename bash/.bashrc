@@ -1,3 +1,6 @@
+# Author: Ming Luo
+# Description: bash run commands to customize terminal experience
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
@@ -20,47 +23,46 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export LS_COLORS='di=38;5;108:fi=00:*svn-commit.tmp=31:ln=38;5;116:ex=38;5;186'
 export EDITOR='vim'
 
-# Python
-alias python='python3'
-alias pip='pip3.4'
-
-# Enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    clias ls='ls --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+# Handle Tmux/Vim environment collision problem
+if [[ $COLORTERM == "gnome-terminal" ]]; then
+    export TERM="xterm-256color"
 fi
 
-# Some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# Aliases file
+source ~/.aliases.bash
 
 # Git
-source ~/git-completion.bash # This needs to be manually downloaded
+source ~/.gitcompletion.bash # This needs to be manually downloaded
 source /etc/bash_completion.d/git-prompt
-alias gst='git status'
-alias gcm='git commit'
-alias gco='git checkout'
-alias gbr='git branch -v'
-alias grt='git remote -v'
-alias gd='git diff'
 
-# Cuz remembering vim vs. bash is hard sometimes
-alias :q='exit'
-alias :Q='exit'
-alias q='exit'
-alias Q='exit'
+# Color
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
 
-# Poloniex lending bot start/stop scripts
-alias startplb='~/Github/dotfiles/bin/start-poloniexlendingbot.sh'
-alias stopplb='~/Github/dotfiles/bin/stop-poloniexlendingbot.sh'
-
-# Go to github folder
-github () {
-	cd "/home/ming/Github/$1"
-}
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+  # We have color support; assume it's compliant with Ecma-48
+  # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+  # a case would tend to support setf rather than setaf.)
+  color_prompt=yes
+    else
+  color_prompt=
+    fi
+fi
+if [ "$color_prompt" = yes ]; then
+    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;37m\]\u\[\033[00m\]@\[\033[01;31m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1='\[\033[01;34m\]\w\[\033[00m\]\> '
+else
+    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+  PS1='\w\> '
+fi
+unset color_prompt force_color_prompt
 
 # For fun fact piped to cowsay piped to rainbow
 # Only run ~20% of the time

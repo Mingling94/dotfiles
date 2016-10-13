@@ -137,9 +137,7 @@ set nowrap
 set number
 set clipboard=unnamed
 set autoindent
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set term=screen-256color
 
 " Settings deprecated in nvim
 if !has('nvim')
@@ -150,6 +148,9 @@ endif
 set t_Co=256
 syntax on
 set background=dark
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Mappings
 imap <C-c> <CR><Esc>O

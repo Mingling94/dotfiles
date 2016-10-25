@@ -66,7 +66,7 @@ endif
 
 if &t_Co > 2 || has("gui_running")
 	" show current col/row
-	set cursorcolumn
+	" set cursorcolumn
 	set cursorline
 	" remove for TeX - slows vim way down
 	autocmd Filetype tex set nocursorcolumn
@@ -79,7 +79,7 @@ if &t_Co > 2 || has("gui_running")
 	set guifont=ProggyTinyTTSZ\ 12
 	colorscheme koehler
 	" colorscheme gruvbox
-	" colorscheme distinguished
+	colorscheme distinguished
 	" Normal ctermbg=NONE
 	set mouse=v
 	set guiheadroom=0

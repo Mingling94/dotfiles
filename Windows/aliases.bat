@@ -33,3 +33,7 @@ DOSKEY documents=cd %USERPROFILE%\Documents\$1
 DOSKEY downloads=cd %USERPROFILE%\Downloads\$1
 DOSKEY github=cd %GITHUB%\$1
 DOSKEY gdrive=cd %GDRIVE%\$1
+
+:: Machine Specific aliases
+DOSKEY scope=e:\ScopeSDK\Scope.exe $* -INPUT_PATH %CD%;e:\CosmosSamples\VCROOT -OUTPUT_PATH e:\CosmosSamples\VCROOT -workingRoot %TEMP%  -RESOURCE_PATH %CD%;e:\CosmosSamples\VCROOT
+

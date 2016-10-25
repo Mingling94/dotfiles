@@ -142,7 +142,7 @@ set clipboard=unnamed
 set autoindent
 set tabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 
 " Settings deprecated in nvim
 if !has('nvim')
@@ -167,3 +167,15 @@ nnoremap <c-l> <c-w>l
 
 " Sudo from within vim
 cmap w!! w !sudo tee > /dev/null %
+
+" Simple re-format for minified Javascript
+command! UnMinify call UnMinify()
+function! UnMinify()
+  set noai nocin nosi inde=
+  %s/{\ze[^\r\n]/{\r/g
+  %s/){/) {/g
+  %s/};\?\ze[^\r\n]/\0\r/g
+  %s/;\ze[^\r\n]/;\r/g
+  %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
+  normal ggVG=
+endfunction

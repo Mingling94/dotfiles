@@ -8,6 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 " Javascript Syntax helpers
 " Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 " Syntax completion
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -15,6 +16,10 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_server_use_vim_stdout = 0
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
@@ -137,7 +142,6 @@ set nowrap
 set number
 set clipboard=unnamed
 set autoindent
-set term=screen-256color
 
 " Settings deprecated in nvim
 if !has('nvim')

@@ -30,3 +30,6 @@
 	continue = rebase --continue
 	pullup = !git pull upstream master && git push
 	reup = !git rebase master && git push --force
+
+    # Show aliases
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort

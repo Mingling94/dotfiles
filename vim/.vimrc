@@ -106,14 +106,6 @@ if !exists(":DiffOrig")
 		\ | wincmd p | diffthis
 endif
 
-" Windows compatibility settings
-" To be used when developing on windows and having trouble with compatibility
-"set ff=unix
-"let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
-"let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
-"let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
-"call vundle#rc(expand(vimDir . '/bundle'))
-
 " Helper function for aliasing
 fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from
@@ -128,6 +120,7 @@ call SetupCommandAlias('Vsplit', 'vsplit')
 call SetupCommandAlias('Split', 'split')
 " To work on files that operate under standard JS style
 call SetupCommandAlias('standard', 'set tabstop=2 expandtab shiftwidth=2')
+call SetupCommandAlias('fourspaces', 'set tabstop=4 expandtab shiftwidth=4')
 
 " Settings
 set nocompatible
@@ -140,7 +133,7 @@ set backupdir=./.backup,/tmp,.
 set directory=.,./.backup,/tmp
 set nowrap
 set number
-set clipboard=unnamed
+set clipboard=unnamedplus
 set autoindent
 
 " Settings deprecated in nvim
@@ -169,3 +162,12 @@ nnoremap <c-l> <c-w>l
 
 " Sudo from within vim
 cmap w!! w !sudo tee > /dev/null %
+
+" Windows compatibility settings
+" To be used when developing on windows and having trouble with compatibility
+"set clipboard=unnamed
+"set ff=unix
+"let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+"let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+"let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
+"call vundle#rc(expand(vimDir . '/bundle'))

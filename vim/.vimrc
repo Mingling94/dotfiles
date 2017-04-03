@@ -122,6 +122,18 @@ call SetupCommandAlias('Split', 'split')
 call SetupCommandAlias('standard', 'set tabstop=2 expandtab shiftwidth=2')
 call SetupCommandAlias('fourspaces', 'set tabstop=4 expandtab shiftwidth=4')
 
+" Simple re-format for minified Javascript
+command! UnMinify call UnMinify()
+function! UnMinify()
+  set noai nocin nosi inde=
+  %s/{\ze[^\r\n]/{\r/g
+  %s/){/) {/g
+  %s/};\?\ze[^\r\n]/\0\r/g
+  %s/;\ze[^\r\n]/;\r/g
+  %s/[^\s]\zs[=&|]\+\ze[^\s]/ \0 /g
+  normal ggVG=
+endfunction
+
 " Settings
 set nocompatible
 set backspace=indent,eol,start

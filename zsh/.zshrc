@@ -1,19 +1,12 @@
 # Author: Ming Luo
-# Description: bash run commands to customize terminal experience
+# Description: zsh run commands to customize terminal experience
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
-shopt -s histappend
-
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
 
 # Customizations to Path
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
@@ -29,10 +22,10 @@ if [[ $COLORTERM == "gnome-terminal" ]]; then
 fi
 
 # Aliases file
-source ~/.aliases.bash
+source ~/.aliases.zsh
 
 # Git
-source ~/.gitcompletion.bash
+fpath=(~/.zsh $fpath)
 
 # Color
 # set a fancy prompt (non-color, unless we know we "want" color)
@@ -62,7 +55,3 @@ else
   PS1='\w\> '
 fi
 unset color_prompt force_color_prompt
-
-# For fun fact piped to cowsay piped to rainbow
-# Only run ~20% of the time
-[ $[ $RANDOM % 5 ] == 0 ] && fortune -as | cowsay | lolcat

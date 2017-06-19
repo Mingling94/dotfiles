@@ -8,13 +8,14 @@
 	rt = remote -v
 	co = checkout
 	st = status
-	ci = commit
-	br = branch -v
+	cm = commit
+	br = branch -v -v
 	last = log -1 HEAD
 
 	# Ammend last commit with current changes
-	amend = commit -a --amend --no-edit
-	whoops = !git amend && git push --force
+	amend = commit --amend --no-edit
+	amendall = commit -a --amend --no-edit
+	whoops = !git amendall && git push --force
 
 	# Displays git history beautifully
 	tree = log --oneline --color --graph --decorate --abbrev-commit

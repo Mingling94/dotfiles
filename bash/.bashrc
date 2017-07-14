@@ -17,8 +17,6 @@ shopt -s checkwinsize
 
 # Customizations to Path
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-export GOROOT=$HOME/goroot
-export GOPATH=$HOME/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export LS_COLORS='di=38;5;108:fi=00:*svn-commit.tmp=31:ln=38;5;116:ex=38;5;186'
 export EDITOR='vim'
@@ -64,5 +62,5 @@ fi
 unset color_prompt force_color_prompt
 
 # For fun fact piped to cowsay piped to rainbow
-# Only run ~20% of the time
+# Only runs ~20% of the time
 [ $[ $RANDOM % 5 ] == 0 ] && fortune -as | cowsay | lolcat

@@ -21,8 +21,7 @@
 	tree = log --oneline --color --graph --decorate --abbrev-commit
 
 	# Unstage or undo mistakes
-	unstage = reset HEAD
-	unstageall = reset HEAD --
+	unstage = reset HEAD --
 	uncommit = reset --soft HEAD^
 	clear = checkout -- *
 	undo = reset --hard HEAD^ --

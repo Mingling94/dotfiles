@@ -15,13 +15,9 @@ alias l='ls -CF'
 alias gst='git status'
 alias gcm='git commit'
 alias gco='git checkout'
-alias gbr='git branch -v'
+alias gbr='git branch -v -v'
 alias grt='git remote -v'
 alias gd='git diff'
-
-# Python
-#alias python='python3'
-#alias pip='pip3.4'
 
 # Tmux workaround for Vim/Tmux coloring collision problem
 alias tmux='tmux -2'

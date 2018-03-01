@@ -6,9 +6,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Javascript Syntax helpers
-" Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
 
 " Syntax completion
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -26,15 +26,15 @@ set completeopt-=preview
 Plugin 'marijnh/tern_for_vim'
 
 " Go Syntax
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 
 " JSdoc 3 generator assigned to ctrl+j when insert mode on function header
-Plugin 'SirVer/ultisnips'
-Plugin 'jordwalke/JSDocSnippets'
-let g:JSDocSnippetsMapping='<c-j>'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'jordwalke/JSDocSnippets'
+" let g:JSDocSnippetsMapping='<c-j>'
 
 " i3 vim syntax
-Plugin 'PotatoesMaster/i3-vim-syntax'
+" Plugin 'PotatoesMaster/i3-vim-syntax'
 
 " ttmux vim
 Plugin 'christoomey/vim-tmux-navigator'
@@ -67,8 +67,8 @@ endif
 
 if &t_Co > 2 || has("gui_running")
 	" show current col/row
-	set cursorcolumn
-	set cursorline
+	"set cursorcolumn
+	"set cursorline
 	" remove for TeX - slows vim way down
 	autocmd Filetype tex set nocursorcolumn
 	autocmd Filetype tex set nocursorline
@@ -88,7 +88,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 if has("autocmd")
-	filetype plugin indent on
 	augroup vimrcEx
 	au!
 	autocmd FileType text setlocal textwidth=78
@@ -97,8 +96,6 @@ if has("autocmd")
 	\	exe "normal! g`\"" |
 	\ endif
 	augroup END
-else
-	set autoindent
 endif
 
 if !exists(":DiffOrig")
@@ -146,7 +143,9 @@ set directory=.,./.backup,/tmp
 set nowrap
 set number
 set clipboard=unnamedplus
-set autoindent
+set tabstop=4
+set shiftwidth=4
+set nobomb
 
 " Settings deprecated in nvim
 if !has('nvim')
@@ -157,8 +156,6 @@ endif
 set t_Co=256
 syntax on
 set background=dark
-set tabstop=2
-set shiftwidth=2
 set expandtab
 
 " Mappings

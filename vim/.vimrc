@@ -8,7 +8,8 @@ Plugin 'gmarik/Vundle.vim'
 " Javascript Syntax helpers
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
-" Plugin 'mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
+Plugin 'leafgarland/typescript-vim'
 
 " Syntax completion
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -174,7 +175,7 @@ cmap w!! w !sudo tee > /dev/null %
 
 " Windows compatibility settings
 " To be used when developing on windows and having trouble with compatibility
-"set clipboard=unnamed
+set clipboard=unnamed
 "set ff=unix
 "let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 "let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'

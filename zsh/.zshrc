@@ -11,10 +11,6 @@ setopt histappend
 HISTSIZE=1000000
 HISTFILESIZE=1000000000
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-setopt -s checkwinsize
-
 # Customizations to Path
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 export GOROOT=$HOME/goroot

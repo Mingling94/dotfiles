@@ -20,7 +20,7 @@ Plugin 'Valloric/YouCompleteMe'
 let g:ycm_server_use_vim_stdout = 0
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
@@ -144,8 +144,8 @@ set directory=.,./.backup,/tmp
 set nowrap
 set number
 set clipboard=unnamedplus
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set nobomb
 
 " Settings deprecated in nvim

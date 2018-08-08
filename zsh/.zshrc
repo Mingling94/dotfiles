@@ -5,8 +5,8 @@
 HISTCONTROL=ignoreboth
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=1000000
+HISTFILESIZE=1000000000
 
 # Customizations to Path
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"

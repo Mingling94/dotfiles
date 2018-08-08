@@ -34,3 +34,18 @@
     # Show aliases
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
 	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+[color]
+	ui = auto
+[core]
+	pager = less -FMRiX
+	autocrlf = input
+	excludesfile = /Users/mingluo/.config/git/excludes
+	editor = vim
+[push]
+	default = simple
+[alias]
+	dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%C    reset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[amazon]
+	append-cr-url = true
+	pull-request-by-default = true

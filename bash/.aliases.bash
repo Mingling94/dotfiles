@@ -62,3 +62,35 @@ gitwhoops () {
     echo "${preface}git status"
     git status
 }
+
+# Friendly find
+# Something similar: https://github.com/sharkdp/fd
+function ff() {
+    if [[ "$1" == "-L" ]]; then
+        follow_opt="-follow"
+        shift
+    fi
+
+    if [[ $# -eq 0 ]]; then
+        echo "Usage: $0 [-L] [SEARCH_PATH] EXPRESSION"
+        return 1
+    elif [[ $# -eq 1 ]]; then
+        search_path=(".")
+        expression="$1"
+    else
+        ## NOTE: this is zsh-specific
+        search_path=${@[1,-2]}
+        expression=${@[-1]}
+    fi
+
+    # Determine case-sensitivity based on whether input has capitals
+    if (echo $expression | grep -q '[A-Z]'); then
+        name_opt="-name"
+    else
+        name_opt="-iname"
+    fi
+
+    # Use the ${(q)foo} expansion to preserve escaping properly
+    find_expr="find $search_path -type f $follow_opt $name_opt \*${(q)expression}\*"
+    eval "$find_expr"
+}

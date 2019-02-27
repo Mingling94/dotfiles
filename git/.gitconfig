@@ -27,7 +27,7 @@
 	undo = reset --hard HEAD^ --
 
 	# Updating to upstream shortcuts
-	continue = rebase --continue
+	continue = !git add . && git rebase --continue
 	pullup = !git pull upstream master && git push
 	reup = !git rebase master && git push --force
 

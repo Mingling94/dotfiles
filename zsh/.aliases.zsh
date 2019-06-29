@@ -1,4 +1,6 @@
-# Author: Ming Luo # Description: bash aliases sourced by .bashrc # Enable color support of ls and also add handy aliases
+# Author: Ming Luo
+# Description: bash aliases sourced by .bashrc # Enable color support of ls and also add handy aliases
+
 if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
@@ -11,11 +13,14 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# notify when a task is done
+alias nd='terminal-notifier -title "Terminal" -message "Done with task!"; say finished task; tput bel'
+
 # Git
 alias gst='git status'
 alias gcm='git commit'
 alias gco='git checkout'
-alias gbr='git branch -v'
+alias gbr='git branch -v -v'
 alias grt='git remote -v'
 alias gd='git diff'
 

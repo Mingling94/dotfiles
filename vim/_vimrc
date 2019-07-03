@@ -15,12 +15,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 
-"Plugin 'marijnh/tern_for_vim'
-"Plugin 'Valloric/YouCompleteMe'
-"let g:ycm_add_preview_to_completeopt=0
-"let g:ycm_confirm_extra_conf=0
-"set completeopt-=preview
-
 " JSdoc 3 generator assigned to ctrl+j when insert mode on function header
 "Plugin 'SirVer/ultisnips'
 Plugin 'jordwalke/JSDocSnippets'

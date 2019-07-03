@@ -16,15 +16,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_server_use_vim_stdout = 0
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
-set completeopt-=preview
-Plugin 'marijnh/tern_for_vim'
 
 " Go Syntax
 " Plugin 'fatih/vim-go'

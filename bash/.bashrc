@@ -38,6 +38,34 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
+# Random emoji per terminal line
+source ~/Github/dotfiles/bash/emojis.bash
+# TODO: Fix two space emojis and spacing in terminal
+# OR
+# TODO: Get rid of all two space emojis in emojis.bash
+EMOJIS=(
+"${SMILEYS[@]}"
+#"${PEOPLE[@]}"
+"${CLOTHING[@]}"
+#"${PALE[@]}" "${CREAM[@]}" "${LIGHT_BROWN[@]}" "${DARK_BROWN[@]}" "${BLACK[@]}"
+"${ANIMALS[@]}"
+"${FOOD[@]}"
+#"${SPORTS[@]}"
+"${OBJECTS[@]}"
+"${TRAVEL[@]}"
+#"${SYMBOLS[@]}"
+#"${FLAGS[@]}"
+)
+RANDOM_EMOJI() {
+  SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};
+  echo $SELECTED_EMOJI;
+}
+
+# Change my Github username to **** Ming **** where * = some
+# random emoji
+E=$(RANDOM_EMOJI)
+sed -i "" -e "s/name = .... Ming ..../name = ${E}${E}${E}${E} Ming ${E}${E}${E}${E}/g" ~/.gitconfig 
+
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -56,7 +84,7 @@ if [ "$color_prompt" = yes ]; then
   # makes the terminal have pretty colors
   export CLICOLOR=1
   export LSCOLORS=ExFxBxDxCxegedabagacad
-  PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+  PS1='$(RANDOM_EMOJI) \[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ '
 else
   PS1='\w\> '
 fi
@@ -65,3 +93,4 @@ unset color_prompt force_color_prompt
 # For fun fact piped to cowsay piped to rainbow
 # Only runs ~20% of the time
 [ $[ $RANDOM % 5 ] == 0 ] && fortune -as | cowsay | lolcat
+

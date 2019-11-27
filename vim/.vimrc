@@ -9,7 +9,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+
+" Typescript
 Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
 
 " Syntax completion
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -107,6 +110,8 @@ call SetupCommandAlias('WQ', 'wq')
 call SetupCommandAlias('Wq', 'wq')
 call SetupCommandAlias('Vsplit', 'vsplit')
 call SetupCommandAlias('Split', 'split')
+call SetupCommandAlias('Set', 'set')
+call SetupCommandAlias('E', 'e')
 " To work on files that operate under standard JS style
 call SetupCommandAlias('standard', 'set tabstop=2 expandtab shiftwidth=2')
 call SetupCommandAlias('fourspaces', 'set tabstop=4 expandtab shiftwidth=4')

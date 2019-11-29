@@ -45,16 +45,14 @@ source ~/Github/dotfiles/bash/emojis.bash
 # TODO: Get rid of all two space emojis in emojis.bash
 EMOJIS=(
 "${SMILEYS[@]}"
-#"${PEOPLE[@]}"
+"${PEOPLE[@]}"
 "${CLOTHING[@]}"
-#"${PALE[@]}" "${CREAM[@]}" "${LIGHT_BROWN[@]}" "${DARK_BROWN[@]}" "${BLACK[@]}"
 "${ANIMALS[@]}"
 "${FOOD[@]}"
-#"${SPORTS[@]}"
+"${SPORTS[@]}"
 "${OBJECTS[@]}"
 "${TRAVEL[@]}"
-#"${SYMBOLS[@]}"
-#"${FLAGS[@]}"
+"${SYMBOLS[@]}"
 )
 RANDOM_EMOJI() {
   SELECTED_EMOJI=${EMOJIS[$RANDOM % ${#EMOJIS[@]}]};

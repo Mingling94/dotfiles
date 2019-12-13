@@ -62,7 +62,7 @@ RANDOM_EMOJI() {
 # Change my Github username to **** Ming **** where * = some
 # random emoji
 E=$(RANDOM_EMOJI)
-sed -i "" -e "s/name = .... Ming ..../name = ${E}${E}${E}${E} Ming ${E}${E}${E}${E}/g" ~/.gitconfig 
+sed -i "" -e "s/name = .*/name = ${E}${E}${E}${E} Ming ${E}${E}${E}${E}/g" ~/.gitconfig 
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window

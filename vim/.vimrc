@@ -16,7 +16,7 @@ Plugin 'Quramy/tsuquyomi'
 
 " Syntax completion
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/syntastic'
 let g:syntastic_check_on_open=1
 
@@ -57,7 +57,7 @@ else
 endif
 
 if has('mouse')
-	set mouse=v
+  set mouse=n
 endif
 
 if &t_Co > 2 || has("gui_running")
@@ -76,7 +76,7 @@ if &t_Co > 2 || has("gui_running")
 	colorscheme gruvbox
 	" colorscheme distinguished
 	" Normal ctermbg=NONE
-	set mouse=v
+	set mouse=n
 	set guiheadroom=0
 	syntax on
 	set hlsearch
